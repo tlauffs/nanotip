@@ -32,7 +32,7 @@ export class AlertsComponent implements OnInit, OnDestroy {
         this.alert = alert[alert.length-1];
         console.log(this.alert);
 
-        if (this.loading !== true) {
+  //      if (this.loading !== true) {
 
         this.name = this.alert.name;
         this.message = this.alert.message;
@@ -46,7 +46,7 @@ export class AlertsComponent implements OnInit, OnDestroy {
           this.startShowing = false;
           this.stopShowing = true;
         }, 5000);
-        }
+//        }
 
         this.loading = false;
       });
