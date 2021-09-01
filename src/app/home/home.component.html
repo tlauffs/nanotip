@@ -1,0 +1,48 @@
+<div class="bg jumbotron bg-cover text-white">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background: rgba(12, 17, 46, 0.8) !important;">
+        <a class="navbar-brand" href="#" style="padding-left: 40px;"><span style="font-weight: 500;">Nano</span><span style="font-weight: 350;">Tip</span></a>
+    </nav>
+<div style="margin-left: 10px; margin-right: 10px;">
+<div class="d-flex justify-content-center" style="margin-top: 3rem;">
+    <h1 class="display-4 font-weight-bold mb-4"><span style="font-weight: 400;">Nano</span><span style="font-weight: 300;">Tip</span></h1>
+</div>
+<div class="d-flex justify-content-center">
+    <p class="lead mb-0" style="text-align: center;">Setup Nano Donations for Twitch or Youtube in Seconds</p>
+</div>
+<div  style=" width: 100%; margin-top: 3rem;">
+<div class="container py-5">
+    <h2 class="h3 font-weight-bold">Create your donation page and OBS widget now</h2>
+    <div class="row">
+        <form #donateForm = "ngForm" (ngSubmit) = "createPage(donateForm.value)" >
+            <p>
+                <mat-form-field appearance="standard" style="width: 80%;">
+                  <mat-label>Name</mat-label>
+                  <input type = "text" [(ngModel)]="name" required name = "name" style="color: black;" matInput ngModel>
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field appearance="standard" style="width: 80%;">
+                  <mat-label >Your Nano address </mat-label>
+                  <input type = "text" [(ngModel)]="key" required style="color: black;" name = "nanoKey" matInput ngModel>
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field appearance="standard" style="width: 80%;">
+                  <mat-label >Min Donation Amount (in NANO) you want to Accept </mat-label>
+                  <input type = "number" [(ngModel)]="amount" step="any" min="0.000001" required style="color: black;" name = "amount" matInput ngModel>
+                  <mat-hint>min ammount: 0.000001</mat-hint>
+                </mat-form-field>
+            </p>
+            <button type = "submit" mat-flat-button color="primary">Create Donation Page</button>
+         </form>
+    </div>
+    <div *ngIf="ready" style="margin-top: 1rem;">
+        <b>Open your Donation Page: </b><a mat-flat-button color="primary" (click)="openTip()">Here</a><br>
+        <b>Open your Recent Activity Widget: </b><button mat-flat-button color="primary" (click)="openActivity()">Here</button><br>
+        <b>Link OBS alert browsersorce: </b><button mat-flat-button color="primary" (click)="openPreview()">Open Preview</button>
+    </div>
+</div>
+</div>
+</div>
+</div>
+

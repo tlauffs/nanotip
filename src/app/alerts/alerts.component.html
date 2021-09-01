@@ -1,0 +1,20 @@
+<div>
+<span *ngIf="startShowing">
+    <div class="center" style="margin-top: 50px; text-align: center;">
+        <h1 class="tracking-in-expand"><b><span style="color: rgb(15, 61, 148);">{{name}}</span> donated 
+        <span style="color: rgb(15, 61, 148);">{{amount}}</span> NANO</b></h1>
+    </div>
+    <div class="center" style="text-align: center;">
+        <h4 class="tracking-in-expand" style="color: rgb(100, 135, 201);">{{message}}</h4>
+    </div>
+</span>
+<span *ngIf="stopShowing">
+    <div class="center" style="margin-top: 50px; text-align: center;">
+        <h1 class="tracking-out-contract"><b><span style="color: rgb(15, 61, 148);">{{name}}</span> donated 
+            <span style="color: rgb(15, 61, 148);">{{amount}}</span> NANO</b></h1>
+    </div>
+    <div class="center" style="text-align: center;">
+        <h4 class="tracking-out-contract" style="color:  rgb(100, 135, 201);">{{message}}</h4>
+    </div>
+</span>
+</div>

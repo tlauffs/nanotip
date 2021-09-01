@@ -1,0 +1,24 @@
+.card {
+
+    margin: 50px auto; 
+    float: none; 
+    margin-bottom: 10px; 
+}
+
+a:hover {
+    color:rgb(7, 109, 112) !important;
+}
+
+.mat-button-disabled{
+    background-color: #3f51b5 !important;
+    color: white !important;
+}
+/*
+.mat-form-field {
+    font-size: inherit !important;
+    font-weight: 400 !important;
+    line-height: 1.125 !important;
+    font-family: Roboto, "Helvetica Neue", sans-serif !important;
+    letter-spacing: normal !important;
+}
+*/
