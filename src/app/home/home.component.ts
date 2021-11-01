@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -10,10 +11,11 @@ export class HomeComponent implements OnInit {
   name = "";
   key = "";
   amount = "";
+  tts = true;
   obsSource = "in Development";
   ready = false;
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   ngOnInit(): void {
     if (localStorage.getItem('name') !== null){
@@ -35,6 +37,7 @@ export class HomeComponent implements OnInit {
       this.name = data.name;
       this.key = data.nanoKey;
       this.amount = data.amount;
+      this.tts = data.tts;
       localStorage.setItem('name', data.name);
       localStorage.setItem('key', data.nanoKey);
       localStorage.setItem('amount', data.amount);
@@ -52,7 +55,10 @@ export class HomeComponent implements OnInit {
   }
 
   openPreview(){
-    open('/alerts/source/'+this.key +'/true');
+    open('/alerts/source/'+this.key +'/' + this.tts);
   }
 
+  copyLink(){
+    navigator.clipboard.writeText('https://nano-tip.com/alerts/source/'+this.key +'/' + this.tts);
+  }
 }

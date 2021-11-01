@@ -6,7 +6,7 @@ import {ActivatedRoute} from '@angular/router';
 import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Inject } from '@angular/core';
-import { tools } from 'nanocurrency-web'
+import { tools } from 'nanocurrency-web';
 import { interval, Subscription } from 'rxjs';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 
@@ -36,7 +36,7 @@ export class TipPageComponent implements OnInit {
 
   alertAddr(){
     const dialogRef = this.dialog.open(NanoDialog);
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result: any) => {
       console.log(`Dialog result: ${result}`);
     });
   }
@@ -47,6 +47,8 @@ export class TipPageComponent implements OnInit {
      /* this.message = {'name': data.name, 'message': data.message, 'amount': data.amount, 'uid': (new Date).getTime()+Math.random()};
       localStorage.setItem('alert',JSON.stringify(this.message));
       localStorage.removeItem('alert'); */
+
+
 
       const dialogRef = this.dialog.open(DonateDialog, {
         data: {
@@ -119,7 +121,7 @@ confirm() {
     params: params
   }).subscribe(data => {
      for (let payment of data.history){
-       if(payment.type == "send" && payment.account == this.payAddress && this.amount.toString() == Number(tools.convert(payment.amount.toString(), 'RAW', 'NANO')).toString()){
+       if(payment.type == "send" && payment.account == this.recieveAddress && this.amount.toString() == Number(tools.convert(payment.amount.toString(), 'RAW', 'NANO')).toString()){
         let alertList = this.db.list('alerts/'+ this.recieveAddress);
         let alertShow = {'name': this.name, 'message': this.msg , 'amount': this.amount};
         alertList.push(alertShow);
